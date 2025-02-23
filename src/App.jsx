@@ -4,12 +4,12 @@ import Home from '@/components/Home'
 
 function App() {
   return (
-    <>
+    <div className="min-h-screen bg-stone-800">
       <Header />
       <main>
         <Home />
       </main>
-    </>
+    </div>
   )
 }
 

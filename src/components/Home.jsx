@@ -1,20 +1,50 @@
 "use client";
-import React from "react";
-import { Boxes } from "@/components/Background-boxes"; // Assuming Boxes.js is in this relative path
-import { cn } from "@/lib/utils"; // Assuming this utility is available
+import React, { useState, useEffect } from "react";
+import { Boxes } from "@/components/Background-boxes";
+import { WavyBackground } from "@/components/WavyBackground";
+import { cn } from "@/lib/utils";
 
 function Home() {
-  return (
-    <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
-      <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+  const [isMobile, setIsMobile] = useState(false);
 
-      <Boxes />
-      <h1 className={cn("md:text-4xl text-xl text-white relative z-20")}>
-        Tailwind is Awesome
-      </h1>
-      <p className="text-center mt-2 text-neutral-300 relative z-20">
-        Framer motion is the best animation library ngl
-      </p>
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Consider 768px and below as mobile
+    };
+
+    checkMobile(); // Check on initial render
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return (
+    <div className="relative w-full overflow-hidden bg-stone-800 flex flex-col items-center justify-center rounded-lg h-[840px]">
+      {/* Overlay for gradient effect */}
+      <div className="absolute inset-0 w-full h-full bg-stone-800 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+      
+      {/* Conditional rendering of background */}
+      {isMobile ? (
+        <WavyBackground 
+          className="w-full h-full" 
+          colors={['#38bdf8', '#818cf8', '#c084fc', '#e879f9', '#22d3ee']}
+          blur={10}
+          speed="fast"
+          waveOpacity={0.5}
+        />
+      ) : (
+        <Boxes />
+      )}
+
+      {/* Content */}
+      <div className="relative z-20 text-center">
+        <h1 className={cn("md:text-4xl text-xl text-white")}>
+          Tailwind is Awesome
+        </h1>
+        <p className="text-center mt-2 text-neutral-300">
+          Framer motion is the best animation library ngl
+        </p>
+      </div>
     </div>
   );
 }
