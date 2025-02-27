@@ -23,7 +23,7 @@ function Header() {
 
   return (
     <ul
-      className="fixed top-0 left-1/2 -translate-x-1/2 flex w-fit rounded-full border-2 border-stone-900 bg-stone-400 p-1.5 z-50 mt-4"
+      className="fixed top-3  left-1/2 -translate-x-1/2 flex w-fit rounded-full border-2 border-stone-900 bg-stone-400 p-1.5 z-50 mt-4"
       onMouseLeave={handleMouseLeave}
     >
       <Tab setPosition={memoizedSetPosition}>Home</Tab>

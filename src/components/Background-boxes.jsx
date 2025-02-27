@@ -92,7 +92,7 @@ export const BoxesCore = ({ className, ...rest }) => {
 
   // Apply transform as a memoized style object
   const transformStyle = useMemo(() => ({
-    transform: `translate(-60%, 70%) skewX(48deg) skewY(-14deg) scale(0.9) rotate(0deg) translateZ(0)`,
+    transform: `translate(-50%, 100%) skewX(48deg) skewY(-14deg) scale(1.1) rotate(0deg) translateZ(0)`,
     // Force hardware acceleration
     willChange: 'transform',
   }), []);

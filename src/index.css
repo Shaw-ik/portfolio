@@ -20,9 +20,30 @@ html {
 }
 
 body {
-    @apply bg-zinc-900 text-zinc-300;
+    @apply text-stone-300;
 }
 
+/*====================================================
+  animation for rotating circles in Home.jsx
+  ====================================================*/
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  
 /* ---break---
 
 :root {
