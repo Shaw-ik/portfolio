@@ -39,7 +39,7 @@ function Home() {
       {/* Content */}
       <div className="relative z-20 text-center">
         <h1 className={cn("md:text-4xl text-xl text-white")}>
-          Tailwind is Awesome
+          Hello everyone!
         </h1>
         <p className="text-center mt-2 text-neutral-300">
           Framer motion is the best animation library ngl
