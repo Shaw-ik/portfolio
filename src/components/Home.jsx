@@ -21,7 +21,7 @@ function Home() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden bg-stone-800 flex flex-col items-center justify-center rounded-lg h-screen"
+      className="relative w-full overflow-hidden bg-stone-800 flex flex-col items-center justify-center h-screen"
     >
       {/* Conditional rendering of background */}
       {isMobile ? (
@@ -128,8 +128,6 @@ function Home() {
               </div>
             </div>
           </div>
-          
-          {/* Add pointer-events-auto to your buttons when you uncomment them */}
         </div>
         
         <div className="hero-icon hidden sm:hidden md:hidden lg:flex justify-center items-center relative w-[480px] h-[480px] mx-auto pointer-events-auto">

@@ -23,20 +23,20 @@ function Header() {
 
   return (
     <ul
-      className="fixed top-3  left-1/2 -translate-x-1/2 flex w-fit rounded-full border-2 border-stone-900 bg-stone-400 p-1.5 z-50 mt-4"
+      className="fixed top-3 left-1/2 -translate-x-1/2 flex w-fit rounded-full border-2 border-stone-900 bg-stone-400 p-1.5 z-50 mt-4"
       onMouseLeave={handleMouseLeave}
     >
-      <Tab setPosition={memoizedSetPosition}>Home</Tab>
-      <Tab setPosition={memoizedSetPosition}>Skills</Tab>
-      <Tab setPosition={memoizedSetPosition}>Experience</Tab>
-      <Tab setPosition={memoizedSetPosition}>Projects</Tab>
-      <Tab setPosition={memoizedSetPosition}>Contact</Tab>
+      <Tab setPosition={memoizedSetPosition} sectionId="home">Home</Tab>
+      <Tab setPosition={memoizedSetPosition} sectionId="skills">Skills</Tab>
+      <Tab setPosition={memoizedSetPosition} sectionId="experience">Experience</Tab>
+      <Tab setPosition={memoizedSetPosition} sectionId="projects">Projects</Tab>
+      <Tab setPosition={memoizedSetPosition} sectionId="contact">Contact</Tab>
       <Cursor position={position} />
     </ul>
   );
 }
 
-const Tab = React.memo(({ children, setPosition }) => {
+const Tab = React.memo(({ children, setPosition, sectionId }) => {
   const ref = useRef(null);
 
   const handleMouseEnter = useCallback(() => {
@@ -50,10 +50,18 @@ const Tab = React.memo(({ children, setPosition }) => {
     });
   }, [setPosition]);
 
+  const handleClick = useCallback(() => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [sectionId]);
+
   return (
     <li
       ref={ref}
       onMouseEnter={handleMouseEnter}
+      onClick={handleClick}
       className="relative z-2 block cursor-pointer px-3 py-1.5 text-xs uppercase text-stone-400 mix-blend-difference md:px-6 md:py-3 md:text-base"
     >
       {children}

@@ -31,7 +31,6 @@ const socialLinks = [
   },
 ];
 
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -41,7 +40,7 @@ const Contact = () => {
   
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [submissionStatus, setSubmissionStatus] = useState(null); 
 
   const validateForm = () => {
     const newErrors = {};
@@ -74,33 +73,46 @@ const Contact = () => {
     e.preventDefault();
     
     if (!validateForm()) {
-      // Show alert for validation errors
-      alert('Please fill out all required fields');
       return;
     }
     
     setIsSubmitting(true);
-    
+    setSubmissionStatus(null); // Clear previous status
+
     try {
-      const response = await fetch('https://getform.io/f/bwngmzya', {
-        method: 'POST',
-        body: new FormData(e.target),
+      // Create form data from the form element
+      const formElement = e.target;
+      const formData = new FormData(formElement);
+
+      // Add the access key to the form data
+      // Using the correct access key format
+      formData.append("access_key", "91b499d5-621e-40c0-a475-a3931f121dfc");
+      
+      // Convert to JSON as shown in the example
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+      
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         headers: {
-          'Accept': 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json"
         },
+        body: json
       });
       
-      if (response.ok) {
+      const data = await response.json();
+      
+      if (data.success) {
         setSubmissionStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        alert('Message sent successfully!');
       } else {
+        console.error("Form submission error:", data);
         setSubmissionStatus('error');
-        alert('Failed to send message. Please try again.');
       }
     } catch (error) {
+      console.error("Form submission error:", error);
       setSubmissionStatus('error');
-      alert('An error occurred. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -110,31 +122,25 @@ const Contact = () => {
     <section
       id="contact"
       className="py-24 relative overflow-hidden"
-    >
-      {/* Background gradient effect - updated to match stone theme */}
-      <div className="absolute inset-0 bg-gradient-to-b from-stone-950/20 to-stone-950/80 -z-10"></div>
-      
-      {/* Animated background dots - updated color */}
-      <div className="absolute inset-0 bg-[radial-gradient(#78716c_1px,transparent_1px)] [background-size:20px_20px] opacity-20 -z-10"></div>
-
+    >      
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 relative">
           
           {/* Left Column */}
           <div className="flex flex-col space-y-8">
             <div>
-              <h5 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-stone-300 via-stone-400 to-stone-500 text-transparent bg-clip-text mb-6 leading-tight reveal-up">
+              <h5 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-stone-200 via-stone-300 to-stone-400 text-transparent bg-clip-text mb-6 leading-tight reveal-up">
                 Let's Create Something Amazing Together
               </h5>
               
-              <p className="text-stone-400 text-lg max-w-xl mb-8 reveal-up leading-relaxed">
-                Have a project in mind? I'd love to hear about it. Drop me a message and let's discuss how we can work together to bring your vision to life.
+              <p className="text-stone-300 text-lg max-w-xl mb-8 reveal-up leading-relaxed">
+              Hey there, friend! I'm really glad you're here. Whether you have a cool project idea or just want to share how your day went, I'd love to hear from you. Even a simple hello makes my day, so please feel free to drop me an email anytime!
               </p>
             </div>
             
             {/* Quick Contact Info */}
             <div className="bg-stone-900/60 backdrop-blur-sm border border-stone-800 rounded-2xl p-6 reveal-up">
-              <h3 className="text-xl font-semibold text-stone-100 mb-4">Quick Contact</h3>
+              <h3 className="text-xl font-semibold mb-4">Quick Contact</h3>
               
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 grid place-items-center bg-stone-500/20 text-stone-400 rounded-full">
@@ -192,20 +198,24 @@ const Contact = () => {
             
             <form
               onSubmit={handleSubmit}
-              action="https://getform.io/f/bwngmzya"
-              method="POST"
               className="bg-stone-900/60 backdrop-blur-md border border-stone-800 rounded-2xl p-6 md:p-8 shadow-xl reveal-up"
             >
-              <h3 className="text-2xl font-semibold text-stone-100 mb-6">Send a Message</h3>
+              <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
+              
+              {/* Can be type="hidden" or type="text" for subject */}
+              <input type="hidden" name="subject" value="New Submission from Portfolio" />
+            
+              {/* From Name you want to see in the email */}
+              <input type="hidden" name="from_name" value="Shaw - Portfolio" />
               
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-stone-400 mb-2"
+                      className="block text-sm font-medium text-stone-300 mb-2"
                     >
-                      Name <span className="text-red-500">*</span>
+                      Name <span className="text-stone-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -218,15 +228,15 @@ const Contact = () => {
                       onChange={handleChange}
                       className={`w-full px-4 py-3 bg-stone-800/50 border ${errors.name ? 'border-red-500' : 'border-stone-700'} rounded-xl text-stone-100 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500/50 focus:border-stone-500 transition-all`}
                     />
-                    {errors.name && <p className="mt-1 text-red-500 text-sm">{errors.name}</p>}
+                    {errors.name && <p className="mt-1 text-stone-400 text-sm">{errors.name}</p>}
                   </div>
                   
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-stone-400 mb-2"
+                      className="block text-sm font-medium text-stone-300 mb-2"
                     >
-                      Email <span className="text-red-500">*</span>
+                      Email <span className="text-stone-400">*</span>
                     </label>
                     <input
                       type="email"
@@ -239,32 +249,32 @@ const Contact = () => {
                       onChange={handleChange}
                       className={`w-full px-4 py-3 bg-stone-800/50 border ${errors.email ? 'border-red-500' : 'border-stone-700'} rounded-xl text-stone-100 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500/50 focus:border-stone-500 transition-all`}
                     />
-                    {errors.email && <p className="mt-1 text-red-500 text-sm">{errors.email}</p>}
+                    {errors.email && <p className="mt-1 text-stone-400 text-sm">{errors.email}</p>}
                   </div>
                 </div>
                 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-stone-400 mb-2"
+                    className="block text-sm font-medium text-stone-300 mb-2"
                   >
-                    Message <span className="text-red-500">*</span>
+                    Message <span className="text-stone-400">*</span>
                   </label>
                   <textarea
                     name="message"
                     id="message"
                     rows="6"
-                    placeholder="Tell me about your project..."
+                    placeholder="Got something on your mind? Whether it's a project idea, a question, or just a friendly hello, type it here!"
                     required
                     value={formData.message}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 bg-stone-800/50 border ${errors.message ? 'border-red-500' : 'border-stone-700'} rounded-xl text-stone-100 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500/50 focus:border-stone-500 transition-all resize-y min-h-32`}
                   ></textarea>
-                  {errors.message && <p className="mt-1 text-red-500 text-sm">{errors.message}</p>}
+                  {errors.message && <p className="mt-1 text-stone-400 text-sm">{errors.message}</p>}
                 </div>
                 
-                {/* Hidden input for email recipient */}
-                <input type="hidden" name="_to" value="sy.katsuya0319@gmail.com" />
+                {/* Hidden spam trap */}
+                <input type="checkbox" name="botcheck" id="" style={{ display: 'none' }} />
                 
                 <button
                   type="submit"
@@ -280,6 +290,18 @@ const Contact = () => {
                     </svg>
                   </span>
                 </button>
+                
+                {submissionStatus === 'success' && (
+                  <div className="text-green-500 mt-2 text-center p-3 bg-green-950/30 border border-green-900 rounded-lg">
+                    Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+                
+                {submissionStatus === 'error' && (
+                  <div className="text-red-500 mt-2 text-center p-3 bg-red-950/30 border border-red-900 rounded-lg">
+                    An error occurred while sending the message. Please try again later.
+                  </div>
+                )}
               </div>
             </form>
           </div>
@@ -289,4 +311,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

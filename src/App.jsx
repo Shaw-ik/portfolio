@@ -1,16 +1,20 @@
-import './App.css'
+/************* 
+  Components 
+  ************/
 import Header from '@/components/Header'
 import Home from '@/components/Home'
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-stone-800">
+    <div>
       <Header />
       <main>
         <Home />
         <Contact />
       </main>
+      <Footer />
     </div>
   )
 }
