@@ -5,15 +5,15 @@ import { cn } from "@/lib/utils";
 
 // Predefined colors array outside component to prevent recreations
 const COLORS = [
-  "rgb(125 211 252)", // sky-300
-  "rgb(249 168 212)", // pink-300
-  "rgb(134 239 172)", // green-300
-  "rgb(253 224 71)",  // yellow-300
-  "rgb(252 165 165)", // red-300
-  "rgb(216 180 254)", // purple-300
-  "rgb(147 197 253)", // blue-300
-  "rgb(165 180 252)", // indigo-300
-  "rgb(196 181 253)", // violet-300
+  "rgb(6 182 212)",   // cyan-500
+  "rgb(139 92 246)",  // violet-500
+  "rgb(236 72 153)",  // pink-500
+  "rgb(59 130 246)",  // blue-500
+  "rgb(14 165 233)",  // sky-500
+  "rgb(168 85 247)",  // purple-500
+  "rgb(99 102 241)",  // indigo-500
+  "rgb(79 70 229)",   // indigo-600
+  "rgb(16 185 129)",  // emerald-500
 ];
 
 // Extract SVG to a separate component
@@ -24,7 +24,7 @@ const PlusIcon = React.memo(() => (
     viewBox="0 0 24 24"
     strokeWidth="1.5"
     stroke="currentColor"
-    className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-600 stroke-[1px] pointer-events-none"
+    className="absolute h-6 w-10 -top-[14px] -left-[22px] text-indigo-400 stroke-[1px] pointer-events-none"
   >
     <path
       strokeLinecap="round"
@@ -52,7 +52,7 @@ const Cell = React.memo(({ showIcon }) => {
       onHoverStart={handleHoverStart}
       onHoverEnd={handleHoverEnd}
       style={{ backgroundColor: color }}
-      className="w-16 h-8 border-r border-t border-stone-700 relative"
+      className="w-16 h-8 border-r border-t border-indigo-800/30 relative"
     >
       {showIcon && <PlusIcon />}
     </motion.div>
@@ -71,7 +71,7 @@ const Row = React.memo(({ index, columnCount }) => {
   );
 
   return (
-    <motion.div className="w-16 h-8 border-l relative">
+    <motion.div className="w-16 h-8 border-l border-indigo-800/30 relative">
       {cells.map((cell) => (
         <Cell key={cell.key} showIcon={cell.showIcon} />
       ))}

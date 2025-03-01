@@ -1,44 +1,41 @@
-import React from 'react';
+import React from "react";
+import { FaArrowUp } from "react-icons/fa";
 
-const Footer = () => {
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+function Footer() {
   const currentYear = new Date().getFullYear();
   
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-  
   return (
-    <footer className="bg-stone-900 text-stone-300 py-6 mt-24 relative">
-      <div className="container mx-auto px-6 flex flex-col items-center">
-        <button 
+    <footer className="bg-gradient-to-b from-slate-900 to-indigo-950 text-sky-100 py-6 relative">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <button
           onClick={scrollToTop}
-          className="absolute -top-6 right-6 bg-stone-800 hover:bg-stone-700 text-stone-300 p-3 rounded-full shadow-lg transition-all duration-300"
+          className="absolute -top-6 right-6 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-cyan-500 hover:to-violet-500 text-white p-3 rounded-full shadow-lg transition-all duration-300"
           aria-label="Scroll to top"
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-5 w-5 md:h-10 md:w-10" 
-            fill="none" 
-            viewBox="0 0 24 24" 
+          <FaArrowUp 
+            size={20} 
+            className="animate-bounce" 
             stroke="currentColor"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M5 15l7-7 7 7" 
-            />
-          </svg>
+          />
         </button>
-        <p className="text-sm mb-4">
+        
+        <p className="text-sm mb-4 md:mb-0">
           &copy; {currentYear} Katsuya Iuchi. All rights reserved.
+        </p>
+        
+        <p className="text-sm text-sky-200">
+          Built with <span className="text-pink-400">♥</span> using React & Tailwind CSS
         </p>
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

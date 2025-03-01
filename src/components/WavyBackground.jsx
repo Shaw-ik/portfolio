@@ -43,11 +43,11 @@ export const WavyBackground = ({
     };
 
     const waveColors = colors ?? [
-      "#38bdf8",
-      "#818cf8",
-      "#c084fc",
-      "#e879f9",
-      "#22d3ee",
+      "#06b6d4", // Cyan-500
+      "#8b5cf6", // Violet-500
+      "#ec4899", // Pink-500
+      "#3b82f6", // Blue-500
+      "#06b6d4", // Cyan-500
     ];
 
     const drawWave = (n, direction) => {
@@ -67,7 +67,7 @@ export const WavyBackground = ({
     };
 
     const render = () => {
-      ctx.fillStyle = backgroundFill || "rgb(41, 37, 36)";
+      ctx.fillStyle = backgroundFill || "rgb(15, 23, 42)"; // slate-900 color
       ctx.globalAlpha = waveOpacity;
       ctx.fillRect(0, 0, w, h);
       // Draw two sets of waves with opposite directions to form an "X"

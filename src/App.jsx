@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div>
-      <Header className="fixed top-3 left-1/2 -translate-x-1/2 mt-4" />
+      <Header className="fixed top-2 left-1/2 -translate-x-1/2 shadow-lg shadow-indigo-900/10" />
       <main>
         <Home />
         <Skill />
