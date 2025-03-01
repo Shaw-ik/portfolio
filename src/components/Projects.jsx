@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import sampleProject from '/public/sample-project.png';
 
 // Technology tag component
 const TechTag = React.memo(({ tech, isLast }) => (
@@ -77,7 +78,7 @@ const Projects = () => {
       name: "X-Dividend Mobile App",
       description: "The app offers comprehensive data on companies, including categories of Most Actives, Gainers and Losers Stock Market. Users can sort the information by sector, name, highest or lowest price, dividend date, and ex-dividend date. This data is updated in real-time, ensuring that users always have access to the most current information.",
       technologies: ["React Native", "Hybrid Mobile App", "Android", "iOS"],
-      imageUrl: "./sample-project.png",
+      imageUrl: sampleProject,
       category: "Stock Market Calendar and Investments"
     },
     {
@@ -85,7 +86,7 @@ const Projects = () => {
       name: "Interact Family Chat App",
       description: "Interact is a revolutionary mobile app designed to help families connect with other families and promote social interaction. With Interact, families can easily find and connect with other families in their local area, create events, and chat with family partners. The app uses geolocation features to show other families within a specific radius, making it easy to find and connect with like-minded families nearby.",
       technologies: ["React Native", "Hybrid Mobile App", "Android", "iOS"],
-      imageUrl: "./sample-project.png",
+      imageUrl: sampleProject,
       category: "Family Chatting and Events App"
     },
   ], []);
