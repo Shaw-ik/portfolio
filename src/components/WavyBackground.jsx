@@ -67,7 +67,7 @@ export const WavyBackground = ({
     };
 
     const render = () => {
-      ctx.fillStyle = backgroundFill || "stone-800";
+      ctx.fillStyle = backgroundFill || "rgb(41, 37, 36)";
       ctx.globalAlpha = waveOpacity;
       ctx.fillRect(0, 0, w, h);
       // Draw two sets of waves with opposite directions to form an "X"

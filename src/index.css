@@ -20,33 +20,9 @@ html {
 }
 
 body {
-  @apply text-stone-300 bg-stone-800;
-  background: 
-      linear-gradient(135deg, rgba(41, 37, 36, 0.9) 0%, rgba(28, 25, 23, 1) 100%),
-      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 4px);
-  background-attachment: fixed;
+  @apply text-stone-300 bg-linear-65 from-stone-700 to-stone-900;
 }
-/*====================================================
-  animation for rotating circles in Home.jsx
-  ====================================================*/
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes spin-reverse {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
-  }
-  
+
 /* ---break---
 
 :root {

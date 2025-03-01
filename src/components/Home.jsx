@@ -9,12 +9,11 @@ function Home() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768); // Consider 768px and below as mobile
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    checkMobile(); // Check on initial render
+    checkMobile();
     window.addEventListener('resize', checkMobile);
-
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -23,7 +22,6 @@ function Home() {
       id="home"
       className="relative w-full overflow-hidden bg-stone-800 flex flex-col items-center justify-center h-screen"
     >
-      {/* Conditional rendering of background */}
       {isMobile ? (
         <WavyBackground 
           className="w-full h-full" 
@@ -36,10 +34,8 @@ function Home() {
         <Boxes />
       )}
 
-      {/* Overlay for gradient effect */}
       <div className="absolute inset-0 w-full h-full bg-stone-800 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
       
-      {/* Content */}
       <div className="container mx-auto px-4 relative flex flex-col lg:grid lg:grid-cols-2 lg:gap-10 items-center justify-center h-full z-30 pointer-events-none">
         <div className="hero-content pointer-events-none text-center lg:text-left mb-8 lg:mb-0">
           <h1 className="pointer-events-auto text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
@@ -55,14 +51,10 @@ function Home() {
             </div>
           </div>
 
-          {/* About Me Section */}
           <div className="relative pointer-events-auto mt-6 max-w-[720px]">
-            {/* Glow Effect Background */}
             <div className="hidden md:block absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 rounded-xl blur-md opacity-70 z-0"></div>            
             
-            {/* Main Content */}
             <div className="relative bg-stone-900/80 backdrop-blur-sm p-6 rounded-xl z-10">
-              {/* Title with icon */}
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-indigo-900/50 p-2 rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-400" viewBox="0 0 20 20" fill="currentColor">
@@ -74,14 +66,11 @@ function Home() {
                 <h2 className="text-2xl font-bold text-indigo-400">About Me</h2>
               </div>
               
-              {/* Main description */}
               <p className="text-stone-200 mb-6 text-sm md:text-base leading-relaxed">
                 Hi! I'm Katsuya—call me Shaw. I'm a passionate Full Stack Developer with expertise in web, mobile, and AI technologies. I enjoy solving complex challenges with creative code and teamwork, and I look forward to connecting with you soon!
               </p>
               
-              {/* Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                {/* Developer card */}
                 <div className="bg-stone-800/80 p-4 rounded-lg">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="text-indigo-400">
@@ -96,7 +85,6 @@ function Home() {
                   </p>
                 </div>
                 
-                {/* Learner card */}
                 <div className="bg-stone-800/80 p-4 rounded-lg">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="text-indigo-400">
@@ -111,7 +99,6 @@ function Home() {
                   </p>
                 </div>
                 
-                {/* Problem Solver card */}
                 <div className="bg-stone-800/80 p-4 rounded-lg">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="text-indigo-400">
@@ -131,15 +118,11 @@ function Home() {
         </div>
         
         <div className="hero-icon hidden sm:hidden md:hidden lg:flex justify-center items-center relative w-[480px] h-[480px] mx-auto pointer-events-auto">
-          {/* Container for animated borders - keep outside the image container */}
           <div className="absolute inset-0 w-full h-full">
-            {/* rotating border */}
-              <div className="absolute inset-0 w-full h-full rounded-full border-5 border-dashed border-stone-400 animate-[spin_15s_linear_infinite]"></div>
+            <div className="absolute inset-0 w-full h-full rounded-full border-5 border-dashed border-stone-400 animate-[spin_15s_linear_infinite]"></div>
           </div>
           
-          {/* Fixed-size image container to ensure perfect circle */}
           <div className="relative w-[450px] h-[450px] rounded-full overflow-hidden border-4 border-stone-700 shadow-lg">
-            {/* Use aspect-square to force perfect square dimensions */}
             <div className="w-full h-full aspect-square">
               <img
                 src="./hero-icon.jpg"
@@ -152,7 +135,6 @@ function Home() {
         </div>
       </div>
     </section>
-    
   );
 }
 

@@ -29,7 +29,7 @@ const PlusIcon = React.memo(() => (
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M200 6v12m6-6H6"
+      d="M12 6v12m6-6H6"
     />
   </svg>  
 ));

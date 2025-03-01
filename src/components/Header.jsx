@@ -2,8 +2,9 @@
 
 import React, { useRef, useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-function Header() {
+function Header({ className }) {
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
@@ -23,7 +24,7 @@ function Header() {
 
   return (
     <ul
-      className="fixed top-3 left-1/2 -translate-x-1/2 flex w-fit rounded-full border-2 border-stone-900 bg-stone-400 p-1.5 z-50 mt-4"
+      className={cn("flex w-fit rounded-full border-2 border-stone-900 bg-stone-400 p-1.5 z-50", className)}
       onMouseLeave={handleMouseLeave}
     >
       <Tab setPosition={memoizedSetPosition} sectionId="home">Home</Tab>

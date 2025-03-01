@@ -1,12 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [isToggled, setIsToggled] = useState(false);
-  
-  const handleToggle = () => {
-    setIsToggled(!isToggled);
-  };
   
   const scrollToTop = () => {
     window.scrollTo({
