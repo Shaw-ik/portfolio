@@ -138,7 +138,7 @@ const Skill = () => {
     {
       name: "Frameworks",
       icon: <BsGearFill />,
-      count: 6,
+      count: 4,
       skills: [
         { 
           name: "React", 
@@ -160,16 +160,6 @@ const Skill = () => {
           logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png", 
           proficiency: 95 
         },
-        { 
-          name: "Docker", 
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", 
-          proficiency: 85 
-        },
-        { 
-          name: "Git", 
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", 
-          proficiency: 85 
-        }
       ]
     },
     {

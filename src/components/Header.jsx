@@ -131,7 +131,7 @@ function Header({ className }) {
 
   return (
     <ul
-      className={cn("flex w-fit rounded-full border border-indigo-900 bg-gradient-to-r from-indigo-900/80 to-slate-800/80 backdrop-blur-sm p-1 z-50", className)}
+      className={cn("flex w-fit rounded-full border border-indigo-900 bg-gradient-to-r from-indigo-900/80 to-slate-800/80 backdrop-blur-sm p-1.5 md:p-2 z-50", className)}
       onMouseLeave={handleMouseLeave}
     >
       <Tab 
@@ -140,7 +140,7 @@ function Header({ className }) {
         isActive={activeSection === "home"}
         tabsRef={tabsRef}
         isMobile={isMobile}
-        icon={<FaHome className="text-[18px]" />}
+        icon={<FaHome className="text-[18px] md:text-[22px]" />}
       >
         Home
       </Tab>
@@ -150,7 +150,7 @@ function Header({ className }) {
         isActive={activeSection === "skills"}
         tabsRef={tabsRef}
         isMobile={isMobile}
-        icon={<FaCode className="text-[18px]" />}
+        icon={<FaCode className="text-[18px] md:text-[22px]" />}
       >
         Skills
       </Tab>
@@ -160,7 +160,7 @@ function Header({ className }) {
         isActive={activeSection === "experience"}
         tabsRef={tabsRef}
         isMobile={isMobile}
-        icon={<FaBriefcase className="text-[18px]" />}
+        icon={<FaBriefcase className="text-[18px] md:text-[22px]" />}
       >
         Experience
       </Tab>
@@ -170,7 +170,7 @@ function Header({ className }) {
         isActive={activeSection === "projects"}
         tabsRef={tabsRef}
         isMobile={isMobile}
-        icon={<FaFolder className="text-[18px]" />}
+        icon={<FaFolder className="text-[18px] md:text-[22px]" />}
       >
         Projects
       </Tab>
@@ -180,7 +180,7 @@ function Header({ className }) {
         isActive={activeSection === "contact"}
         tabsRef={tabsRef}
         isMobile={isMobile}
-        icon={<FaEnvelope className="text-[18px]" />}
+        icon={<FaEnvelope className="text-[18px] md:text-[22px]" />}
       >
         Contact
       </Tab>
@@ -273,12 +273,12 @@ const Tab = React.memo(({ children, setPosition, sectionId, isActive, tabsRef, i
       className={`relative flex justify-center items-center z-2 cursor-pointer ${
         isMobile 
         ? `px-3 py-2.5 ${isActive ? 'min-w-[55px]' : 'min-w-[55px]'}` 
-        : 'px-2.5 py-1 md:px-4 md:py-2'
-      } transition-all duration-300 text-xs uppercase md:text-sm ${isActive 
+        : 'px-3 py-2 md:px-6 md:py-3'
+      } transition-all duration-300 text-xs uppercase md:text-base ${isActive 
         ? 'text-cyan-400 font-medium' 
         : 'text-sky-100 mix-blend-difference'}`}
     >
-      <div className="flex items-center justify-center gap-1.5">
+      <div className="flex items-center justify-center gap-2">
         {isMobile && icon}
         <span className={`${isMobile && isActive ? 'text-[12px]' : ''}`}>
           {isMobile && !isActive ? '' : children}
@@ -299,7 +299,7 @@ const Cursor = React.memo(({ position }) => {
   return (
     <li
       style={style}
-      className="absolute z-1 h-9 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 md:h-10"
+      className="absolute z-1 h-9 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 md:h-12"
     />
   );
 });

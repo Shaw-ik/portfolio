@@ -1,6 +1,9 @@
 import React, { useMemo } from 'react';
-import sampleProject from '/public/image.png';
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+
+/* Images */
+import sampleProject from './assets/portfolioImg.png';
+import facebookListing from './assets/preparing.jpg';
 
 // Technology tag component
 const TechTag = React.memo(({ tech, isLast }) => (
@@ -47,7 +50,7 @@ const ProjectCard = React.memo(({ project, isEven }) => {
         {/* Project Details */}
         <div className={`flex flex-col ${isEven ? 'md:order-2' : 'md:order-1'}`}>
           <div className="mb-4">
-            <span className="text-cyan-400 text-xs md:text-sm font-medium">Featured Project</span>
+            <span className="text-cyan-400 text-xs md:text-sm font-medium">My Project</span>
             
             <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-cyan-400 mb-2 md:mb-4">{project.name}</h3>
             
@@ -102,30 +105,30 @@ const Projects = () => {
   const projects = useMemo(() => [
     {
       id: 1,
-      name: "X-Dividend Mobile App",
-      description: "The app offers comprehensive data on companies, including categories of Most Actives, Gainers and Losers Stock Market. Users can sort the information by sector, name, highest or lowest price, dividend date, and ex-dividend date. This data is updated in real-time, ensuring that users always have access to the most current information.",
-      technologies: ["React Native", "Hybrid Mobile App", "Android", "iOS"],
+      name: "Personal Portfolio Website (This Website)",
+      description: "A modern, responsive portfolio website built with React and Tailwind CSS. Features a clean, professional design with smooth animations, dark theme, and sections for skills, projects, and contact information. The site showcases technical expertise through interactive components and optimized performance.",
+      technologies: ["React", "Tailwind CSS", "JavaScript", "Vite"],
       imageUrl: sampleProject,
-      category: "Stock Market Calendar and Investments",
-      github: "https://github.com",
-      demo: "https://demo.com"
+      category: "Web Development",
+      github: "https://github.com/Shaw-ik/portfolio",
+      demo: "https://shaw-ik-portfolio.vercel.app/"
     },
     {
       id: 2,
-      name: "Interact Family Chat App",
-      description: "Interact is a revolutionary mobile app designed to help families connect with other families and promote social interaction. With Interact, families can easily find and connect with other families in their local area, create events, and chat with family partners. The app uses geolocation features to show other families within a specific radius, making it easy to find and connect with like-minded families nearby.",
-      technologies: ["React Native", "Hybrid Mobile App", "Android", "iOS"],
-      imageUrl: sampleProject,
-      category: "Family Chatting and Events App",
-      github: "https://github.com",
-      demo: "https://demo.com"
+      name: "Facebook Auto Listing App",
+      description: "An automated Facebook Marketplace listing application that streamlines the process of posting and managing product listings. Features include bulk listing creation, automated price updates, inventory management, and performance analytics. The app significantly reduces manual effort and improves marketplace selling efficiency.",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
+      imageUrl: facebookListing,
+      category: "E-commerce Automation",
+      github: "",
+      demo: ""
     },
   ], []);
 
   return (
     <section id="projects" className="projects-section py-12 md:py-16 bg-gradient-to-b from-indigo-950 to-slate-900 text-white">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 md:mb-12 bg-gradient-to-r from-cyan-400 via-sky-300 to-violet-400 text-transparent bg-clip-text">Featured Projects</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 md:mb-12 bg-gradient-to-r from-cyan-400 via-sky-300 to-violet-400 text-transparent bg-clip-text">My Projects</h1>
         
         <div className="space-y-24">
           {projects.map((project, index) => (

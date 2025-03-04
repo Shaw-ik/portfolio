@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 
 // Social icons
-function LinkedInIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-      <rect x="2" y="9" width="4" height="12"></rect>
-      <circle cx="4" cy="4" r="2"></circle>
-    </svg>
-  );
-}
+// function LinkedInIcon() {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+//       <rect x="2" y="9" width="4" height="12"></rect>
+//       <circle cx="4" cy="4" r="2"></circle>
+//     </svg>
+//   );
+// }
 
 function GitHubIcon() {
   return (
@@ -46,13 +46,10 @@ function TwitterIcon() {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
+      stroke="none"
     >
-      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
 }
@@ -73,25 +70,6 @@ function InstagramIcon() {
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-    </svg>
-  );
-}
-
-function DribbbleIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10"></circle>
-      <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path>
     </svg>
   );
 }
@@ -150,10 +128,9 @@ function Contact() {
       const formData = new FormData(formElement);
 
       // Add the access key to the form data
-      // Using the correct access key format
       formData.append("access_key", "91b499d5-621e-40c0-a475-a3931f121dfc");
       
-      // Convert to JSON as shown in the example
+      // Convert to JSON 
       const object = Object.fromEntries(formData);
       const json = JSON.stringify(object);
       
@@ -227,16 +204,16 @@ function Contact() {
                   </svg>
                 </div>
                 <p className="text-sky-100">
-                  Los Angeles, California
+                  Markham, Ontario
                 </p>
               </div>
               
               {/* Social Media Links */}
               <div className="mt-8">
-                <h3 className="text-violet-400 mb-3 text-sm font-medium">FIND ME ON</h3>
+                <h3 className="text-sky-100 mb-3 text-sm font-medium">FIND ME ON</h3>
                 
                 <div className="flex flex-wrap gap-3">
-                  <a
+                  {/* <a
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -244,10 +221,10 @@ function Contact() {
                     className="w-12 h-12 grid place-items-center bg-gradient-to-br from-slate-800/80 to-indigo-950/30 text-cyan-400 rounded-xl border border-slate-700/50 transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-cyan-900/30 hover:to-cyan-700/30 hover:text-white hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-600/20 group"
                   >
                     <LinkedInIcon />
-                  </a>
+                  </a> */}
                   
                   <a
-                    href="https://github.com"
+                    href="https://github.com/Shaw-ik"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub Profile"
@@ -257,33 +234,23 @@ function Contact() {
                   </a>
                   
                   <a
-                    href="https://twitter.com"
+                    href="https://x.com/Shaw_ik"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Twitter Profile"
+                    aria-label="X (formerly Twitter) Profile"
                     className="w-12 h-12 grid place-items-center bg-gradient-to-br from-slate-800/80 to-indigo-950/30 text-sky-400 rounded-xl border border-slate-700/50 transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-sky-900/30 hover:to-sky-700/30 hover:text-white hover:border-sky-500/30 hover:shadow-lg hover:shadow-sky-600/20 group"
                   >
                     <TwitterIcon />
                   </a>
                   
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/shaw_ik0319/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram Profile"
                     className="w-12 h-12 grid place-items-center bg-gradient-to-br from-slate-800/80 to-indigo-950/30 text-pink-400 rounded-xl border border-slate-700/50 transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-pink-900/30 hover:to-pink-700/30 hover:text-white hover:border-pink-500/30 hover:shadow-lg hover:shadow-pink-600/20 group"
                   >
                     <InstagramIcon />
-                  </a>
-                  
-                  <a
-                    href="https://dribbble.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Dribbble Profile"
-                    className="w-12 h-12 grid place-items-center bg-gradient-to-br from-slate-800/80 to-indigo-950/30 text-purple-400 rounded-xl border border-slate-700/50 transition-all duration-300 hover:scale-110 hover:bg-gradient-to-br hover:from-purple-900/30 hover:to-purple-700/30 hover:text-white hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-600/20 group"
-                  >
-                    <DribbbleIcon />
                   </a>
                 </div>
               </div>
