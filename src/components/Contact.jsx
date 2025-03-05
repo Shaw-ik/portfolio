@@ -204,7 +204,7 @@ function Contact() {
                   </svg>
                 </div>
                 <p className="text-sky-100">
-                  Markham, Ontario
+                  Toronto, Ontario
                 </p>
               </div>
               
