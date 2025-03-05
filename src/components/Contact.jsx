@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Access environment variable
+const MAIL_KEY = import.meta.env.VITE_MAIL_KEY;
+
 // Social icons
 // function LinkedInIcon() {
 //   return (
@@ -128,7 +131,7 @@ function Contact() {
       const formData = new FormData(formElement);
 
       // Add the access key to the form data
-      formData.append("access_key", "91b499d5-621e-40c0-a475-a3931f121dfc");
+      formData.append("access_key", MAIL_KEY);
       
       // Convert to JSON 
       const object = Object.fromEntries(formData);
