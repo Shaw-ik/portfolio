@@ -15,6 +15,7 @@ const brandColors = {
   Java: "#007396",
   React: "#61DAFB",
   "Next.js": "#000000",
+  "Node.js": "#339933",
   "ASP.NET": "#512BD4",
   "Tailwind CSS": "#06B6D4",
   Docker: "#2496ED",
@@ -138,7 +139,7 @@ const Skill = () => {
     {
       name: "Frameworks",
       icon: <BsGearFill />,
-      count: 4,
+      count: 5,
       skills: [
         { 
           name: "React", 
@@ -149,6 +150,11 @@ const Skill = () => {
           name: "Next.js", 
           logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", 
           proficiency: 90 
+        },
+        { 
+          name: "Node.js", 
+          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", 
+          proficiency: 85 
         },
         { 
           name: "ASP.NET", 
